@@ -1,0 +1,28 @@
+openapi: 3.0.1
+info:
+  title: Example.API
+  version: v1
+paths:
+  /api/Example/Send:
+    post:
+      tags:
+        - Example
+      operationId: ExampleSend
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                attachments:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+                  nullable: true
+            encoding:
+              attachments:
+                style: form
+      responses:
+        '200':
+          description: Success
